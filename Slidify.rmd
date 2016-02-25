@@ -1,0 +1,39 @@
+---
+title: "Data Products"
+author: "Christopher M"
+date: "Wednesday, February 24, 2016"
+output: slidy_presentation
+---
+
+## Product Overview
+
+This presentation will provide a breif overview of the Diamond Explorer Application and prediction tool.
+
+https://christophertestaccount.shinyapps.io/Coursera_two/
+
+## Benefits of the Product
+
+- View histograms of different numerical vectors of data
+- Drill Down into the data
+- Make better sound decisions of the data
+- Verify Assumptions
+- View a diamonds with a $200 range
+- Compare your own diamonds to prediction
+
+## Overview of the dataset
+
+```{r,results='asis'}
+library(ggplot2)
+library(xtable)
+print(xtable(head(diamonds)),type='html')
+```
+
+## Our Prediction Model
+
+```{r,results='asis'}
+regression_model <- lm(price~table+depth+carat,diamonds)
+print(xtable(summary(regression_model)),type='html')
+
+```
+- It is not reported in this output but our model is accounting for 85% of the variance which is excellent.
+- One thing we can quickly learn is that you want a smaller table and depth measurement because as these increase our price decreases. 
